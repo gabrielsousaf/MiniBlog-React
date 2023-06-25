@@ -11,8 +11,8 @@ import {
 import {useState, useEffect } from 'react'
 
 export const useAuthentication = () => {
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(null)
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(null);
 
     const [cancelled, setCancelled] = useState(false);
 
@@ -28,10 +28,10 @@ export const useAuthentication = () => {
         checkIfIsCancelled();
 
         setLoading(true);
-        setError(null);
+        // setError(null);
 
         try{
-            const {user} = await createUserWithEmailAndPassword(
+            const { user } = await createUserWithEmailAndPassword(
                 auth,
                 data.email,
                 data.password
@@ -41,7 +41,7 @@ export const useAuthentication = () => {
                 displayName: data.displayName
             });
 
-            setLoading(false);
+            // setLoading(false);
 
             return user;
         }
@@ -61,10 +61,46 @@ export const useAuthentication = () => {
                 systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde."
             }
 
-            setLoading(false);
+            // setLoading(false);
             setError(systemErrorMessage);
         }
+
+        setLoading(false);
     };
+
+    const logout = () => {
+        checkIfIsCancelled();
+
+        signOut(auth)
+    };
+
+    const login = async(data) => {
+        checkIfIsCancelled();
+
+        setLoading(true);
+        setError(false);
+
+        try {
+            await signInWithEmailAndPassword(auth, data.email, data.password)
+            setLoading(false);
+        }
+        catch( error ){
+            let systemErrorMessage;
+
+            if (error.message.includes("user-not-found")){
+                systemErrorMessage = "Usuário não encontrado."
+            }
+            else if(error.message.includes("wrong-password")){
+                systemErrorMessage = "Senha incorreta."
+            }
+            else{
+                systemErrorMessage = "Ocorreu um erro, por favor tente mais tarde."
+            }
+
+            setError(systemErrorMessage);
+            setLoading(false)
+        }
+    }
 
     useEffect(() => {
         return () => setCancelled(true)
@@ -74,6 +110,8 @@ export const useAuthentication = () => {
         auth,
         createUser,
         error,
-        loading
+        loading,
+        logout,
+        login,
     }
 }
