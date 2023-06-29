@@ -1,6 +1,6 @@
 <h1 align="center" width:100%>
 
-![Design sem nome](https://github.com/gabrielsousaf/Memory-Game-React/assets/121953504/696ce847-dbd2-439b-9560-3e4b6d23f3ca)
+![MiniBlog React - Google Chrome 2023-06-29 16-05-52](https://github.com/gabrielsousaf/MiniBlog-React/assets/121953504/776b1c7e-60dd-46c2-adc2-35beabe06064)
 ![Design_sem_nome-removebg-preview](https://github.com/gabrielsousaf/Memory-Game-React/assets/121953504/6ab9f216-c128-4e32-9434-f385402448c7)
 
  
