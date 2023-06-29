@@ -94,6 +94,7 @@ textarea{
 
 .btn.btn-outline:hover{
   background-color: #000;
+  color: #FFF;
 }
 
 .btn.btn-danger:hover{
@@ -111,3 +112,4 @@ button[disabled]{
   padding: 5px;
   border-radius: 5px;
 }
+
