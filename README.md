@@ -1,7 +1,7 @@
 <h1 align="center" width:100%>
 
 ![MiniBlog React - Google Chrome 2023-06-29 16-05-52](https://github.com/gabrielsousaf/MiniBlog-React/assets/121953504/776b1c7e-60dd-46c2-adc2-35beabe06064)
-![Design_sem_nome-removebg-preview](https://github.com/gabrielsousaf/Memory-Game-React/assets/121953504/6ab9f216-c128-4e32-9434-f385402448c7)
+![Cópia_de_Design_sem_nome-removebg-preview](https://github.com/gabrielsousaf/MiniBlog-React/assets/121953504/9892758e-8386-4501-9c27-5d656d22ad19)
 
  
 
@@ -26,7 +26,7 @@
 [![JAVASCRIPT](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
 [![REACT](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
 
-https://memory-game-bd30lf9e4-gabrielsousaf.vercel.app/
+https://mini-blog-react-eta.vercel.app/
 
 
 ## 📎 Como Executar o projeto.
