@@ -3,6 +3,8 @@ import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,6 +26,21 @@ const Login = () => {
 
     console.log(res);
   };
+
+  const handleLoginWithGoogle = async (e) => {
+    e.preventDefault();
+
+    setError('');
+
+    console.log('Ok');
+
+    try {
+      await handleLoginWithGoogle();
+    }
+    catch(error) {
+      setError('Ocorreu um erro no login com o Google. Por favor, tente novamente!')
+    }
+  }
 
   useEffect(() => {
     console.log(authError);
@@ -59,13 +76,23 @@ const Login = () => {
             value={password}
           />
         </label>
-        {!loading && <button className="btn">Entrar</button>}
-        {loading && (
-          <button className="btn" disabled>
+
+        <div className={styles.container_btn}>
+          {!loading && <button className="btn">Entrar</button>}
+
+          {!loading && <button className={styles.btn_google} onClick={handleLoginWithGoogle}>
+            <FaGoogle className={styles.google_icon} />
+            Entrar com o Google
+          </button>}
+
+          {loading && (
+            <button className="btn" disabled>
             Aguarde...
-          </button>
-        )}
-        {error && <p className="error">{error}</p>}
+            </button>
+          )}
+          {error && <p className="error">{error}</p>}
+        </div>
+
       </form>
     </div>
   );

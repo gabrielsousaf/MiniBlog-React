@@ -61,6 +61,7 @@ textarea{
 }
 
 .btn{
+  justify-content: center;
   background-color: #1A8918;
   color: #FFF;
   text-align: center;

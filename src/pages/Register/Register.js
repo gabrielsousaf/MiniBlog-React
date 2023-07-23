@@ -3,6 +3,9 @@ import styles from "./Register.module.css";
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+
+
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
@@ -10,7 +13,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { createUser, error: authError, loading } = useAuthentication();
+  const { createUser, loginWithGoogle, error: authError, loading } = useAuthentication();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +35,21 @@ const Register = () => {
 
     console.log(res);
   };
+
+  const handleLoginWithGoogle = async (e) => {
+    e.preventDefault();
+
+    setError('');
+    console.log('Ok')
+
+    try{
+      await loginWithGoogle()
+    }
+
+    catch (error){
+      setError('Ocorreu um erro no login com o Google. Por favor, tenete novamente!')
+    }
+  }
 
   useEffect(() => {
     if (authError) {
@@ -88,13 +106,24 @@ const Register = () => {
             value={confirmPassword}
           />
         </label>
-        {!loading && <button className="btn">Entrar</button>}
-        {loading && (
-          <button className="btn" disabled>
+        
+        <div className={styles.container_btn}>
+          {!loading && <button className="btn">Entrar</button>}
+
+          {!loading && <button className={styles.btn_google} onClick={handleLoginWithGoogle}>
+            <FaGoogle className={styles.google_icon} />
+            Entrar com o Google
+          </button>}
+
+          {loading && (
+            <button className="btn" disabled>
             Aguarde...
           </button>
-        )}
-        {error && <p className="error">{error}</p>}
+          )}
+
+          {error && <p className="error">{error}</p>}
+        </div>
+  
       </form>
     </div>
   );

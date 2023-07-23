@@ -5,3 +5,40 @@
 .login p{
     color: #aaa;
 }
+
+.container_btn{
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.btn_google{
+    cursor: pointer;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 50%;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    font-size: 1em;
+    align-items: center;
+    display: flex;
+    border: none;
+    justify-content: center;
+    transition: 300ms all ease;
+}
+
+.btn_google:hover{
+    background-color: #2b2b2b;
+}
+
+.google_icon{
+    font-size: 1em;
+    margin-right: 7px;
+}

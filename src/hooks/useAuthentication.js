@@ -4,6 +4,8 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
   signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 
 import { useState, useEffect } from "react";
@@ -101,6 +103,18 @@ export const useAuthentication = () => {
     setLoading(false);
   };
 
+  const loginWithGoogle = async () => {
+    try{
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      setLoading(false);
+    }
+    catch (error){
+      setError("Ocorreu u merro no login com o Google. Por favor, tente novamente!");
+      setLoading(false)
+    }
+  }
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
@@ -112,5 +126,6 @@ export const useAuthentication = () => {
     logout,
     login,
     loading,
+    loginWithGoogle,
   };
 };
