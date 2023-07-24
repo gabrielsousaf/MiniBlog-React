@@ -15,6 +15,22 @@
     align-items: center;
 }
 
+.container_password{
+    position: relative;
+}
+
+.password{
+    position: relative;
+}
+
+.eye{
+    position: absolute;
+    margin-left: 85%;
+    margin-top: 35px;
+    font-size: 20px;
+    cursor:pointer;
+}
+
 .btn_google{
     cursor: pointer;
     background-color: #1a1a1a;

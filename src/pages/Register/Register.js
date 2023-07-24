@@ -12,6 +12,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const { createUser, loginWithGoogle, error: authError, loading } = useAuthentication();
 
@@ -57,6 +58,10 @@ const Register = () => {
     }
   }, [authError]);
 
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  }
+
   return (
     <div className={styles.register}>
       <h1>Cadastre-se para postar</h1>
@@ -84,16 +89,20 @@ const Register = () => {
             value={email}
           />
         </label>
-        <label>
+        <label className={styles.container_password}>
           <span>Senha:</span>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="password"
+            className={styles.password}
             required
             placeholder="Insira a senha"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
+          <span className={styles.eye} onClick={togglePasswordVisibility}>
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
         </label>
         <label>
           <span>Confirmação de senha:</span>

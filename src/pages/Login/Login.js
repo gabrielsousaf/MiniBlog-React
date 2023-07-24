@@ -3,7 +3,7 @@ import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
   const [email, setEmail] = useState("");
