@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "mini-blog-react-bd56c.appspot.com",
   messagingSenderId: "444107994884",
   appId: "1:444107994884:web:67d8867a6bcdf3bbbec251"
-}; 
+};
 
 const app = initializeApp(firebaseConfig);
 
